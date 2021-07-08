@@ -63,6 +63,106 @@ namespace Track_Test_Creator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] cygattr_1 {
+            get {
+                object obj = ResourceManager.GetObject("cygattr_1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] cygcrypto_1_1 {
+            get {
+                object obj = ResourceManager.GetObject("cygcrypto_1_1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] cygiconv_2 {
+            get {
+                object obj = ResourceManager.GetObject("cygiconv_2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] cygintl_8 {
+            get {
+                object obj = ResourceManager.GetObject("cygintl_8", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] cygncursesw_10 {
+            get {
+                object obj = ResourceManager.GetObject("cygncursesw_10", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] cygpcre_1 {
+            get {
+                object obj = ResourceManager.GetObject("cygpcre_1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] cygpng16_16 {
+            get {
+                object obj = ResourceManager.GetObject("cygpng16_16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] cygreadline7 {
+            get {
+                object obj = ResourceManager.GetObject("cygreadline7", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] cygwin1 {
+            get {
+                object obj = ResourceManager.GetObject("cygwin1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] cygz {
+            get {
+                object obj = ResourceManager.GetObject("cygz", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] lecode_JAP {
             get {
                 object obj = ResourceManager.GetObject("lecode_JAP", resourceCulture);

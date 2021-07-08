@@ -14,7 +14,7 @@ namespace Track_Test_Creator
 {
     public partial class Form1 : Form
     {
-        readonly string[] course = new[] { "LC", "MMM", "MG", "TF", "MC", "CM", "DKS", "WGM", "DC", "KC", "MT", "GV", "DDR", "MV", "BC", "RR", "gPB", "dYF", "sGV2", "nMR", "nSL", "gSGB", "dDS", "gWS", "dDH", "gBC3", "nDKJP", "gMC", "sMC3", "dPG", "gDKM", "nBC" };
+        readonly string[] course = new[] { "LC", "MMM", "MG", "TF", "MC", "CM", "DKS", "WGM", "DC", "KC", "MT", "GV", "DDR", "MH", "BC", "RR", "gPB", "dYF", "sGV2", "nMR", "nSL", "gSGB", "dDS", "gWS", "dDH", "gBC3", "nDKJP", "gMC", "sMC3", "dPG", "gDKM", "nBC" };
 
         public Form1()
         {
@@ -54,6 +54,17 @@ namespace Track_Test_Creator
             File.WriteAllBytes("workdir/wszst.exe", Properties.Resources.wszst);
             File.WriteAllBytes("workdir/wlect.exe", Properties.Resources.wlect);
             File.WriteAllBytes("workdir/wbmgt.exe", Properties.Resources.wbmgt);
+
+            File.WriteAllBytes("workdir/cygattr-1.dll", Properties.Resources.cygattr_1);
+            File.WriteAllBytes("workdir/cygcrypto-1.1.dll", Properties.Resources.cygcrypto_1_1);
+            File.WriteAllBytes("workdir/cygiconv-2.dll", Properties.Resources.cygiconv_2);
+            File.WriteAllBytes("workdir/cygintl-8.dll", Properties.Resources.cygintl_8);
+            File.WriteAllBytes("workdir/cygncursesw-10.dll", Properties.Resources.cygncursesw_10);
+            File.WriteAllBytes("workdir/cygpcre-1.dll", Properties.Resources.cygpcre_1);
+            File.WriteAllBytes("workdir/cygpng16-16.dll", Properties.Resources.cygpng16_16);
+            File.WriteAllBytes("workdir/cygreadline7.dll", Properties.Resources.cygreadline7);
+            File.WriteAllBytes("workdir/cygwin1.dll", Properties.Resources.cygwin1);
+            File.WriteAllBytes("workdir/cygz.dll", Properties.Resources.cygz);
 
             File.WriteAllBytes("workdir/MenuSingle_E.szs", Properties.Resources.MenuSingle_E);
 
@@ -299,6 +310,8 @@ namespace Track_Test_Creator
             File.Move(@"workdir\lecode-USA.bin", @"output\boot\lecode-USA.bin");
             File.Move(@"workdir\lecode-JAP.bin", @"output\boot\lecode-JAP.bin");
             Directory.Delete(@"workdir\", true);
+
+            MessageBox.Show("Building Complete", "Complete");
         }
 
         private void CreateConfig()

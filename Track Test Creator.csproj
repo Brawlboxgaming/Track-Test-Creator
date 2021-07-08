@@ -88,6 +88,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\cygattr-1.dll" />
+    <None Include="Resources\cygz.dll" />
+    <None Include="Resources\cygwin1.dll" />
+    <None Include="Resources\cygreadline7.dll" />
+    <None Include="Resources\cygpng16-16.dll" />
+    <None Include="Resources\cygpcre-1.dll" />
+    <None Include="Resources\cygncursesw-10.dll" />
+    <None Include="Resources\cygintl-8.dll" />
+    <None Include="Resources\cygiconv-2.dll" />
+    <None Include="Resources\cygcrypto-1.1.dll" />
     <None Include="Resources\wszst.exe" />
     <None Include="Resources\wlect.exe" />
     <None Include="Resources\wbmgt.exe" />

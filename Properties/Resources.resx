@@ -118,6 +118,36 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="cygattr_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cygattr-1.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cygcrypto_1_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cygcrypto-1.1.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cygiconv_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cygiconv-2.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cygintl_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cygintl-8.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cygncursesw_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cygncursesw-10.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cygpcre_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cygpcre-1.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cygpng16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cygpng16-16.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cygreadline7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cygreadline7.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cygwin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cygwin1.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cygz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cygz.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="lecode_JAP" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lecode-JAP.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
