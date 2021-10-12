@@ -14,16 +14,53 @@ namespace Track_Test_Creator
 {
     public partial class Form1 : Form
     {
+        private struct CupInfo
+        {
+            public string Track1Name;
+            public string Track2Name;
+            public string Track3Name;
+            public string Track4Name;
+            public string Track1BMG;
+            public string Track2BMG;
+            public string Track3BMG;
+            public string Track4BMG;
+            public int Track1Slot;
+            public int Track2Slot;
+            public int Track3Slot;
+            public int Track4Slot;
+            public int Track1Music;
+            public int Track2Music;
+            public int Track3Music;
+            public int Track4Music;
+
+            public CupInfo(string t1n, string t2n, string t3n, string t4n, string t1b, string t2b, string t3b, string t4b, int t1s, int t2s, int t3s, int t4s, int t1m, int t2m, int t3m, int t4m)
+            {
+                Track1Name = t1n;
+                Track2Name = t2n;
+                Track3Name = t3n;
+                Track4Name = t4n;
+                Track1BMG = t1b;
+                Track2BMG = t2b;
+                Track3BMG = t3b;
+                Track4BMG = t4b;
+                Track1Slot = t1s;
+                Track2Slot = t2s;
+                Track3Slot = t3s;
+                Track4Slot = t4s;
+                Track1Music = t1m;
+                Track2Music = t2m;
+                Track3Music = t3m;
+                Track4Music = t4m;
+            }
+        }
+        List<CupInfo> cups = new List<CupInfo>();
         readonly string[] course = new[] { "LC", "MMM", "MG", "TF", "MC", "CM", "DKS", "WGM", "DC", "KC", "MT", "GV", "DDR", "MH", "BC", "RR", "gPB", "dYF", "sGV2", "nMR", "nSL", "gSGB", "dDS", "gWS", "dDH", "gBC3", "nDKJP", "gMC", "sMC3", "dPG", "gDKM", "nBC" };
+        int currentCup = 1;
 
         public Form1()
         {
+            cups.Add(new CupInfo("", "", "", "", "", "", "", "", 1, 1, 1, 1, 1, 1, 1, 1));
             InitializeComponent();
-            panel2.Visible = false;
-            panel3.Visible = false;
-            panel4.Visible = false;
-            panel5.Visible = false;
-            panel6.Visible = false;
         }
 
         private void build_Click(object sender, EventArgs e)
@@ -36,6 +73,7 @@ namespace Track_Test_Creator
             Directory.CreateDirectory(@"output/");
             Directory.CreateDirectory(@"output/boot");
             Directory.CreateDirectory(@"output/scene");
+            StoreText();
             CreateConfig();
             EncodeFiles();
         }
@@ -166,48 +204,12 @@ namespace Track_Test_Creator
             sw.WriteLine(@"  7041	/");
             sw.WriteLine(@"  7042	/");
             sw.WriteLine(@"  7043	=  Wiimms SZS Toolset v2.25a r8443");
-            sw.WriteLine($"  7044	= {cup1Track1BMG.Text}");
-            sw.WriteLine($"  7045	= {cup1Track2BMG.Text}");
-            sw.WriteLine($"  7046	= {cup1Track3BMG.Text}");
-            sw.WriteLine($"  7047	= {cup1Track4BMG.Text}");
-            if (cupInput.Value > 1)
+            for (int i = 0; i < cups.Count; i++)
             {
-                sw.WriteLine($"  7048	= {cup2Track1BMG.Text}");
-                sw.WriteLine($"  7049	= {cup2Track2BMG.Text}");
-                sw.WriteLine($"  704a	= {cup2Track3BMG.Text}");
-                sw.WriteLine($"  704b	= {cup2Track4BMG.Text}");
-            }
-
-            if (cupInput.Value > 2)
-            {
-                sw.WriteLine($"  704c	= {cup3Track1BMG.Text}");
-                sw.WriteLine($"  704d	= {cup3Track2BMG.Text}");
-                sw.WriteLine($"  704e	= {cup3Track3BMG.Text}");
-                sw.WriteLine($"  704f	= {cup3Track4BMG.Text}");
-            }
-
-            if (cupInput.Value > 3)
-            {
-                sw.WriteLine($"  7050	= {cup4Track1BMG.Text}");
-                sw.WriteLine($"  7051	= {cup4Track2BMG.Text}");
-                sw.WriteLine($"  7052	= {cup4Track3BMG.Text}");
-                sw.WriteLine($"  7053	= {cup4Track4BMG.Text}");
-            }
-
-            if (cupInput.Value > 4)
-            {
-                sw.WriteLine($"  7054	= {cup5Track1BMG.Text}");
-                sw.WriteLine($"  7055	= {cup5Track2BMG.Text}");
-                sw.WriteLine($"  7056	= {cup5Track3BMG.Text}");
-                sw.WriteLine($"  7057	= {cup5Track4BMG.Text}");
-            }
-
-            if (cupInput.Value > 5)
-            {
-                sw.WriteLine($"  7058	= {cup6Track1BMG.Text}");
-                sw.WriteLine($"  7059	= {cup6Track2BMG.Text}");
-                sw.WriteLine($"  705a	= {cup6Track3BMG.Text}");
-                sw.WriteLine($"  705b	= {cup6Track4BMG.Text}");
+                sw.WriteLine($"  {7044 + i * 4}	= {cups[i].Track1BMG}");
+                sw.WriteLine($"  {7045 + i * 4}	= {cups[i].Track2BMG}");
+                sw.WriteLine($"  {7046 + i * 4}	= {cups[i].Track3BMG}");
+                sw.WriteLine($"  {7047 + i * 4}	= {cups[i].Track4BMG}");
             }
             sw.WriteLine(@"");
             sw.WriteLine(@" 18697	/");
@@ -330,94 +332,91 @@ namespace Track_Test_Creator
                 sw.WriteLine("%WIIMM-CUP = 0\n");
                 sw.WriteLine("N N$SWAP | N$F_WII");
 
-                sw.WriteLine("\nC \"1\" # 12");
-                sw.WriteLine($"T {course[Convert.ToInt32(cup1Track1Slot.Value) - 1]}; {course[Convert.ToInt32(cup1Track1Slot.Value) - 1]}; 0x00; \"{cup1Track1Name.Text}\"; \"{cup1Track1Name.Text}\"; \"\"");
-                sw.WriteLine($"T {course[Convert.ToInt32(cup1Track2Slot.Value) - 1]}; {course[Convert.ToInt32(cup1Track2Slot.Value) - 1]}; 0x00; \"{cup1Track2Name.Text}\"; \"{cup1Track2Name.Text}\"; \"\"");
-                sw.WriteLine($"T {course[Convert.ToInt32(cup1Track3Slot.Value) - 1]}; {course[Convert.ToInt32(cup1Track3Slot.Value) - 1]}; 0x00; \"{cup1Track3Name.Text}\"; \"{cup1Track3Name.Text}\"; \"\"");
-                sw.WriteLine($"T {course[Convert.ToInt32(cup1Track4Slot.Value) - 1]}; {course[Convert.ToInt32(cup1Track4Slot.Value) - 1]}; 0x00; \"{cup1Track4Name.Text}\"; \"{cup1Track4Name.Text}\"; \"\"");
-
-                if (cupInput.Value > 1)
+                for (int i = 0; i < cups.Count; i++)
                 {
-                    sw.WriteLine("\nC \"2\" # 13");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup2Track1Slot.Value) - 1]}; {course[Convert.ToInt32(cup2Track1Slot.Value) - 1]}; 0x00; \"{cup2Track1Name.Text}\"; \"{cup2Track1Name.Text}\"; \"\"");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup2Track2Slot.Value) - 1]}; {course[Convert.ToInt32(cup2Track2Slot.Value) - 1]}; 0x00; \"{cup2Track2Name.Text}\"; \"{cup2Track2Name.Text}\"; \"\"");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup2Track3Slot.Value) - 1]}; {course[Convert.ToInt32(cup2Track3Slot.Value) - 1]}; 0x00; \"{cup2Track3Name.Text}\"; \"{cup2Track3Name.Text}\"; \"\"");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup2Track4Slot.Value) - 1]}; {course[Convert.ToInt32(cup2Track4Slot.Value) - 1]}; 0x00; \"{cup2Track4Name.Text}\"; \"{cup2Track4Name.Text}\"; \"\"");
-                }
+                    sw.WriteLine($"\nC \"{i + 1}\" # {i + 12}");
+                    sw.WriteLine($"T {course[Convert.ToInt32(cups[i].Track1Music) - 1]}; {course[Convert.ToInt32(cups[i].Track1Slot) - 1]}; 0x00; \"{cups[i].Track1Name}\"; \"{cups[i].Track1Name}\"; \"\"");
+                    sw.WriteLine($"T {course[Convert.ToInt32(cups[i].Track2Music) - 1]}; {course[Convert.ToInt32(cups[i].Track2Slot) - 1]}; 0x00; \"{cups[i].Track2Name}\"; \"{cups[i].Track2Name}\"; \"\"");
+                    sw.WriteLine($"T {course[Convert.ToInt32(cups[i].Track3Music) - 1]}; {course[Convert.ToInt32(cups[i].Track3Slot) - 1]}; 0x00; \"{cups[i].Track3Name}\"; \"{cups[i].Track3Name}\"; \"\"");
+                    sw.WriteLine($"T {course[Convert.ToInt32(cups[i].Track4Music) - 1]}; {course[Convert.ToInt32(cups[i].Track4Slot) - 1]}; 0x00; \"{cups[i].Track4Name}\"; \"{cups[i].Track4Name}\"; \"\"");
 
-                if (cupInput.Value > 2)
-                {
-                    sw.WriteLine("\nC \"3\" # 14");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup3Track1Slot.Value) - 1]}; {course[Convert.ToInt32(cup3Track1Slot.Value) - 1]}; 0x00; \"{cup3Track1Name.Text}\"; \"{cup3Track1Name.Text}\"; \"\"");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup3Track2Slot.Value) - 1]}; {course[Convert.ToInt32(cup3Track2Slot.Value) - 1]}; 0x00; \"{cup3Track2Name.Text}\"; \"{cup3Track2Name.Text}\"; \"\"");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup3Track3Slot.Value) - 1]}; {course[Convert.ToInt32(cup3Track3Slot.Value) - 1]}; 0x00; \"{cup3Track3Name.Text}\"; \"{cup3Track3Name.Text}\"; \"\"");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup3Track4Slot.Value) - 1]}; {course[Convert.ToInt32(cup3Track4Slot.Value) - 1]}; 0x00; \"{cup3Track4Name.Text}\"; \"{cup3Track4Name.Text}\"; \"\"");
-                }
-
-                if (cupInput.Value > 3)
-                {
-                    sw.WriteLine("\nC \"4\" # 15");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup4Track1Slot.Value) - 1]}; {course[Convert.ToInt32(cup4Track1Slot.Value) - 1]}; 0x00; \"{cup4Track1Name.Text}\"; \"{cup4Track1Name.Text}\"; \"\"");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup4Track2Slot.Value) - 1]}; {course[Convert.ToInt32(cup4Track2Slot.Value) - 1]}; 0x00; \"{cup4Track2Name.Text}\"; \"{cup4Track2Name.Text}\"; \"\"");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup4Track3Slot.Value) - 1]}; {course[Convert.ToInt32(cup4Track3Slot.Value) - 1]}; 0x00; \"{cup4Track3Name.Text}\"; \"{cup4Track3Name.Text}\"; \"\"");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup4Track4Slot.Value) - 1]}; {course[Convert.ToInt32(cup4Track4Slot.Value) - 1]}; 0x00; \"{cup4Track4Name.Text}\"; \"{cup4Track4Name.Text}\"; \"\"");
-                }
-
-                if (cupInput.Value > 4)
-                {
-                    sw.WriteLine("\nC \"5\" # 16");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup5Track1Slot.Value) - 1]}; {course[Convert.ToInt32(cup5Track1Slot.Value) - 1]}; 0x00; \"{cup5Track1Name.Text}\"; \"{cup5Track1Name.Text}\"; \"\"");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup5Track2Slot.Value) - 1]}; {course[Convert.ToInt32(cup5Track2Slot.Value) - 1]}; 0x00; \"{cup5Track2Name.Text}\"; \"{cup5Track2Name.Text}\"; \"\"");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup5Track3Slot.Value) - 1]}; {course[Convert.ToInt32(cup5Track3Slot.Value) - 1]}; 0x00; \"{cup5Track3Name.Text}\"; \"{cup5Track3Name.Text}\"; \"\"");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup5Track4Slot.Value) - 1]}; {course[Convert.ToInt32(cup5Track4Slot.Value) - 1]}; 0x00; \"{cup5Track4Name.Text}\"; \"{cup5Track4Name.Text}\"; \"\"");
-                }
-
-                if (cupInput.Value > 5)
-                {
-                    sw.WriteLine("\nC \"6\" # 17");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup6Track1Slot.Value) - 1]}; {course[Convert.ToInt32(cup6Track1Slot.Value) - 1]}; 0x00; \"{cup6Track1Name.Text}\"; \"{cup6Track1Name.Text}\"; \"\"");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup6Track2Slot.Value) - 1]}; {course[Convert.ToInt32(cup6Track2Slot.Value) - 1]}; 0x00; \"{cup6Track2Name.Text}\"; \"{cup6Track2Name.Text}\"; \"\"");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup6Track3Slot.Value) - 1]}; {course[Convert.ToInt32(cup6Track3Slot.Value) - 1]}; 0x00; \"{cup6Track3Name.Text}\"; \"{cup6Track3Name.Text}\"; \"\"");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cup6Track4Slot.Value) - 1]}; {course[Convert.ToInt32(cup6Track4Slot.Value) - 1]}; 0x00; \"{cup6Track4Name.Text}\"; \"{cup6Track4Name.Text}\"; \"\"");
                 }
                 sw.Close();
             }
         }
 
+        private void StoreText()
+        {
+            cups[currentCup - 1] = new CupInfo(
+                Track1Name.Text,
+                Track2Name.Text,
+                Track3Name.Text,
+                Track4Name.Text,
+                Track1BMG.Text,
+                Track2BMG.Text,
+                Track3BMG.Text,
+                Track4BMG.Text,
+                decimal.ToInt32(Track1Slot.Value),
+                decimal.ToInt32(Track2Slot.Value),
+                decimal.ToInt32(Track3Slot.Value),
+                decimal.ToInt32(Track4Slot.Value),
+                decimal.ToInt32(Track1Music.Value),
+                decimal.ToInt32(Track2Music.Value),
+                decimal.ToInt32(Track3Music.Value),
+                decimal.ToInt32(Track4Music.Value));
+        }
+
+        private void SetText()
+        {
+            Track1Name.Text = cups[currentCup - 1].Track1Name;
+            Track2Name.Text = cups[currentCup - 1].Track2Name;
+            Track3Name.Text = cups[currentCup - 1].Track3Name;
+            Track4Name.Text = cups[currentCup - 1].Track4Name;
+            Track1BMG.Text = cups[currentCup - 1].Track1BMG;
+            Track2BMG.Text = cups[currentCup - 1].Track2BMG;
+            Track3BMG.Text = cups[currentCup - 1].Track3BMG;
+            Track4BMG.Text = cups[currentCup - 1].Track4BMG;
+            Track1Slot.Value = cups[currentCup - 1].Track1Slot;
+            Track2Slot.Value = cups[currentCup - 1].Track2Slot;
+            Track3Slot.Value = cups[currentCup - 1].Track3Slot;
+            Track4Slot.Value = cups[currentCup - 1].Track4Slot;
+            Track1Music.Value = cups[currentCup - 1].Track1Music;
+            Track2Music.Value = cups[currentCup - 1].Track2Music;
+            Track3Music.Value = cups[currentCup - 1].Track3Music;
+            Track4Music.Value = cups[currentCup - 1].Track4Music;
+        }
+
         private void cupInput_ValueChanged(object sender, EventArgs e)
         {
-            if (cupInput.Value > 0)
+            while (cupInput.Value > cups.Count)
             {
-                panel2.Visible = false;
+                cups.Add(new CupInfo("", "", "", "", "", "", "", "", 1, 1, 1, 1, 1, 1, 1, 1));
             }
-
-            if (cupInput.Value > 1)
+            while (cupInput.Value < cups.Count)
             {
-                panel2.Visible = true;
-                panel3.Visible = false;
+                cups.RemoveAt(cups.Count - 1);
             }
+        }
 
-            if (cupInput.Value > 2)
+        private void LeftArrow_Click(object sender, EventArgs e)
+        {
+            if (currentCup > 1)
             {
-                panel3.Visible = true;
-                panel4.Visible = false;
+                StoreText();
+                currentCup--;
+                cupLabel.Text = $"Cup {currentCup.ToString()}";
+                SetText();
             }
+        }
 
-            if (cupInput.Value > 3)
+        private void RightArrow_Click(object sender, EventArgs e)
+        {
+            if (currentCup < cups.Count)
             {
-                panel4.Visible = true;
-                panel5.Visible = false;
-            }
-
-            if (cupInput.Value > 4)
-            {
-                panel5.Visible = true;
-                panel6.Visible = false;
-            }
-
-            if (cupInput.Value > 5)
-            {
-                panel6.Visible = true;
+                StoreText();
+                currentCup++;
+                cupLabel.Text = $"Cup {currentCup.ToString()}";
+                SetText();
             }
         }
     }
