@@ -61,6 +61,9 @@ namespace Track_Test_Creator
             this.build = new System.Windows.Forms.Button();
             this.RightArrow = new System.Windows.Forms.Button();
             this.LeftArrow = new System.Windows.Forms.Button();
+            this.export = new System.Windows.Forms.Button();
+            this.import = new System.Windows.Forms.Button();
+            this.perfMonToggle = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.cupInput)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Track4Music)).BeginInit();
@@ -475,7 +478,7 @@ namespace Track_Test_Creator
             // 
             // build
             // 
-            this.build.Location = new System.Drawing.Point(287, 378);
+            this.build.Location = new System.Drawing.Point(322, 385);
             this.build.Name = "build";
             this.build.Size = new System.Drawing.Size(75, 23);
             this.build.TabIndex = 110;
@@ -503,11 +506,46 @@ namespace Track_Test_Creator
             this.LeftArrow.UseVisualStyleBackColor = true;
             this.LeftArrow.Click += new System.EventHandler(this.LeftArrow_Click);
             // 
+            // export
+            // 
+            this.export.Location = new System.Drawing.Point(241, 385);
+            this.export.Name = "export";
+            this.export.Size = new System.Drawing.Size(75, 23);
+            this.export.TabIndex = 113;
+            this.export.Text = "Export";
+            this.export.UseVisualStyleBackColor = true;
+            this.export.Click += new System.EventHandler(this.export_Click);
+            // 
+            // import
+            // 
+            this.import.Location = new System.Drawing.Point(160, 385);
+            this.import.Name = "import";
+            this.import.Size = new System.Drawing.Size(75, 23);
+            this.import.TabIndex = 114;
+            this.import.Text = "Import";
+            this.import.UseVisualStyleBackColor = true;
+            this.import.Click += new System.EventHandler(this.import_Click);
+            // 
+            // perfMonToggle
+            // 
+            this.perfMonToggle.AutoSize = true;
+            this.perfMonToggle.Checked = true;
+            this.perfMonToggle.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.perfMonToggle.Location = new System.Drawing.Point(12, 407);
+            this.perfMonToggle.Name = "perfMonToggle";
+            this.perfMonToggle.Size = new System.Drawing.Size(124, 17);
+            this.perfMonToggle.TabIndex = 115;
+            this.perfMonToggle.Text = "Performance Monitor";
+            this.perfMonToggle.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 412);
+            this.ClientSize = new System.Drawing.Size(409, 430);
+            this.Controls.Add(this.perfMonToggle);
+            this.Controls.Add(this.import);
+            this.Controls.Add(this.export);
             this.Controls.Add(this.LeftArrow);
             this.Controls.Add(this.RightArrow);
             this.Controls.Add(this.build);
@@ -567,6 +605,9 @@ namespace Track_Test_Creator
         private System.Windows.Forms.NumericUpDown Track3Music;
         private System.Windows.Forms.NumericUpDown Track2Music;
         private System.Windows.Forms.NumericUpDown Track1Music;
+        private System.Windows.Forms.Button export;
+        private System.Windows.Forms.Button import;
+        private System.Windows.Forms.CheckBox perfMonToggle;
     }
 }
 

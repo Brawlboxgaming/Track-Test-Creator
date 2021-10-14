@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace Track_Test_Creator
 {
@@ -56,6 +52,9 @@ namespace Track_Test_Creator
         List<CupInfo> cups = new List<CupInfo>();
         readonly string[] course = new[] { "LC", "MMM", "MG", "TF", "MC", "CM", "DKS", "WGM", "DC", "KC", "MT", "GV", "DDR", "MH", "BC", "RR", "gPB", "dYF", "sGV2", "nMR", "nSL", "gSGB", "dDS", "gWS", "dDH", "gBC3", "nDKJP", "gMC", "sMC3", "dPG", "gDKM", "nBC" };
         int currentCup = 1;
+        string perfmon;
+        string importDir;
+        string exportDir;
 
         public Form1()
         {
@@ -65,6 +64,9 @@ namespace Track_Test_Creator
 
         private void build_Click(object sender, EventArgs e)
         {
+            if (!perfMonToggle.Checked)
+                perfmon = "--perf-mon=0";
+            else perfmon = "--perf-mon=1";
             Directory.CreateDirectory(@"workdir/");
             Directory.CreateDirectory(@"workdir/input");
             Directory.CreateDirectory(@"workdir/output");
@@ -252,7 +254,7 @@ namespace Track_Test_Creator
 
             processInfo = new ProcessStartInfo();
             processInfo.FileName = @"cmd.exe";
-            processInfo.Arguments = "/C wlect.exe " + "patch lecode-PAL.bin --le-define config.txt --custom-tt -o";
+            processInfo.Arguments = "/C wlect.exe " + $"patch lecode-PAL.bin --le-define config.txt --custom-tt {perfmon} -o";
             processInfo.WorkingDirectory = @"workdir/";
             processInfo.CreateNoWindow = true;
             processInfo.WindowStyle = ProcessWindowStyle.Hidden;
@@ -266,7 +268,7 @@ namespace Track_Test_Creator
 
             processInfo = new ProcessStartInfo();
             processInfo.FileName = @"cmd.exe";
-            processInfo.Arguments = "/C wlect.exe " + "patch lecode-USA.bin --le-define config.txt --custom-tt -o";
+            processInfo.Arguments = "/C wlect.exe " + $"patch lecode-USA.bin --le-define config.txt --custom-tt {perfmon} -o";
             processInfo.WorkingDirectory = @"workdir/";
             processInfo.CreateNoWindow = true;
             processInfo.WindowStyle = ProcessWindowStyle.Hidden;
@@ -280,7 +282,7 @@ namespace Track_Test_Creator
 
             processInfo = new ProcessStartInfo();
             processInfo.FileName = @"cmd.exe";
-            processInfo.Arguments = "/C wlect.exe " + "patch lecode-JAP.bin --le-define config.txt --custom-tt -o";
+            processInfo.Arguments = "/C wlect.exe " + $"patch lecode-JAP.bin --le-define config.txt --custom-tt {perfmon} -o";
             processInfo.WorkingDirectory = @"workdir/";
             processInfo.CreateNoWindow = true;
             processInfo.WindowStyle = ProcessWindowStyle.Hidden;
@@ -384,6 +386,8 @@ namespace Track_Test_Creator
             Track2Music.Value = cups[currentCup - 1].Track2Music;
             Track3Music.Value = cups[currentCup - 1].Track3Music;
             Track4Music.Value = cups[currentCup - 1].Track4Music;
+            cupLabel.Text = $"Cup {currentCup}";
+            cupInput.Value = cups.Count;
         }
 
         private void cupInput_ValueChanged(object sender, EventArgs e)
@@ -400,23 +404,51 @@ namespace Track_Test_Creator
 
         private void LeftArrow_Click(object sender, EventArgs e)
         {
+            StoreText();
             if (currentCup > 1)
-            {
-                StoreText();
                 currentCup--;
-                cupLabel.Text = $"Cup {currentCup.ToString()}";
-                SetText();
-            }
+            else currentCup = cups.Count;
+            SetText();
         }
 
         private void RightArrow_Click(object sender, EventArgs e)
         {
+            StoreText();
             if (currentCup < cups.Count)
-            {
-                StoreText();
                 currentCup++;
-                cupLabel.Text = $"Cup {currentCup.ToString()}";
+            else currentCup = 1;
+            SetText();
+        }
+
+        private void import_Click(object sender, EventArgs e)
+        {
+            StoreText();
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.IsFolderPicker = false;
+            dialog.Multiselect = false;
+            dialog.Title = "Import";
+            dialog.Filters.Add(new CommonFileDialogFilter("JSON Files", ".json"));
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                var jsonString = File.ReadAllText(dialog.FileName);
+                cups = JsonConvert.DeserializeObject<List<CupInfo>>(jsonString);
+                currentCup = 1;
                 SetText();
+            }
+        }
+
+        private void export_Click(object sender, EventArgs e)
+        {
+            StoreText();
+            CommonSaveFileDialog dialog = new CommonSaveFileDialog();
+            dialog.Title = "Export";
+            dialog.AlwaysAppendDefaultExtension = true;
+            dialog.DefaultExtension = ".json";
+            dialog.Filters.Add(new CommonFileDialogFilter("JSON Files", ".json"));
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                string jsonString = JsonConvert.SerializeObject(cups);
+                File.WriteAllText(dialog.FileName, jsonString);
             }
         }
     }
