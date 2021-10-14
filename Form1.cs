@@ -206,10 +206,10 @@ namespace Track_Test_Creator
             sw.WriteLine(@"  7043	=  Wiimms SZS Toolset v2.25a r8443");
             for (int i = 0; i < cups.Count; i++)
             {
-                sw.WriteLine($"  {7044 + i * 4}	= {cups[i].Track1BMG}");
-                sw.WriteLine($"  {7045 + i * 4}	= {cups[i].Track2BMG}");
-                sw.WriteLine($"  {7046 + i * 4}	= {cups[i].Track3BMG}");
-                sw.WriteLine($"  {7047 + i * 4}	= {cups[i].Track4BMG}");
+                sw.WriteLine($"  {28740 + i * 4:X}	= {cups[i].Track1BMG}");
+                sw.WriteLine($"  {28741 + i * 4:X}	= {cups[i].Track2BMG}");
+                sw.WriteLine($"  {28742 + i * 4:X}	= {cups[i].Track3BMG}");
+                sw.WriteLine($"  {28743 + i * 4:X}	= {cups[i].Track4BMG}");
             }
             sw.WriteLine(@"");
             sw.WriteLine(@" 18697	/");
