@@ -65,8 +65,8 @@ namespace Track_Test_Creator
         private void build_Click(object sender, EventArgs e)
         {
             if (!perfMonToggle.Checked)
-                perfmon = "--perf-mon=0";
-            else perfmon = "--perf-mon=1";
+                perfmon = "--perf-mon=off";
+            else perfmon = "--perf-mon=on";
             Directory.CreateDirectory(@"workdir/");
             Directory.CreateDirectory(@"workdir/input");
             Directory.CreateDirectory(@"workdir/output");
