@@ -451,5 +451,45 @@ namespace Track_Test_Creator
                 File.WriteAllText(dialog.FileName, jsonString);
             }
         }
+
+        private void Track1Slot_ValueChanged(object sender, EventArgs e)
+        {
+            Slot1Label.Text = course[(int)Track1Slot.Value-1];
+        }
+
+        private void Track1Music_ValueChanged(object sender, EventArgs e)
+        {
+            Music1Label.Text = course[(int)Track1Music.Value - 1];
+        }
+
+        private void Track2Slot_ValueChanged(object sender, EventArgs e)
+        {
+            Slot2Label.Text = course[(int)Track2Slot.Value - 1];
+        }
+
+        private void Track2Music_ValueChanged(object sender, EventArgs e)
+        {
+            Music2Label.Text = course[(int)Track2Music.Value - 1];
+        }
+
+        private void Track3Slot_ValueChanged(object sender, EventArgs e)
+        {
+            Slot3Label.Text = course[(int)Track3Slot.Value - 1];
+        }
+
+        private void Track3Music_ValueChanged(object sender, EventArgs e)
+        {
+            Music3Label.Text = course[(int)Track3Music.Value - 1];
+        }
+
+        private void Track4Slot_ValueChanged(object sender, EventArgs e)
+        {
+            Slot4Label.Text = course[(int)Track4Slot.Value - 1];
+        }
+
+        private void Track4Music_ValueChanged(object sender, EventArgs e)
+        {
+            Music4Label.Text = course[(int)Track4Music.Value - 1];
+        }
     }
 }
