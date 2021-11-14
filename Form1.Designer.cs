@@ -64,14 +64,14 @@ namespace Track_Test_Creator
             this.Track3Music = new System.Windows.Forms.NumericUpDown();
             this.Track4Music = new System.Windows.Forms.NumericUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Slot1Label = new System.Windows.Forms.Label();
-            this.Music1Label = new System.Windows.Forms.Label();
-            this.Slot2Label = new System.Windows.Forms.Label();
-            this.Music2Label = new System.Windows.Forms.Label();
-            this.Slot3Label = new System.Windows.Forms.Label();
-            this.Music3Label = new System.Windows.Forms.Label();
-            this.Slot4Label = new System.Windows.Forms.Label();
             this.Music4Label = new System.Windows.Forms.Label();
+            this.Slot4Label = new System.Windows.Forms.Label();
+            this.Music3Label = new System.Windows.Forms.Label();
+            this.Slot3Label = new System.Windows.Forms.Label();
+            this.Music2Label = new System.Windows.Forms.Label();
+            this.Slot2Label = new System.Windows.Forms.Label();
+            this.Music1Label = new System.Windows.Forms.Label();
+            this.Slot1Label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cupInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Track1Slot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Track2Slot)).BeginInit();
@@ -430,7 +430,7 @@ namespace Track_Test_Creator
             // 
             this.Track1Music.Location = new System.Drawing.Point(253, 55);
             this.Track1Music.Maximum = new decimal(new int[] {
-            32,
+            42,
             0,
             0,
             0});
@@ -453,7 +453,7 @@ namespace Track_Test_Creator
             // 
             this.Track2Music.Location = new System.Drawing.Point(252, 144);
             this.Track2Music.Maximum = new decimal(new int[] {
-            32,
+            42,
             0,
             0,
             0});
@@ -476,7 +476,7 @@ namespace Track_Test_Creator
             // 
             this.Track3Music.Location = new System.Drawing.Point(253, 233);
             this.Track3Music.Maximum = new decimal(new int[] {
-            32,
+            42,
             0,
             0,
             0});
@@ -499,7 +499,7 @@ namespace Track_Test_Creator
             // 
             this.Track4Music.Location = new System.Drawing.Point(253, 318);
             this.Track4Music.Maximum = new decimal(new int[] {
-            32,
+            42,
             0,
             0,
             0});
@@ -562,59 +562,14 @@ namespace Track_Test_Creator
             this.panel1.TabIndex = 105;
             this.panel1.Tag = "cup1";
             // 
-            // Slot1Label
+            // Music4Label
             // 
-            this.Slot1Label.AutoSize = true;
-            this.Slot1Label.Location = new System.Drawing.Point(297, 32);
-            this.Slot1Label.Name = "Slot1Label";
-            this.Slot1Label.Size = new System.Drawing.Size(20, 13);
-            this.Slot1Label.TabIndex = 107;
-            this.Slot1Label.Text = "LC";
-            // 
-            // Music1Label
-            // 
-            this.Music1Label.AutoSize = true;
-            this.Music1Label.Location = new System.Drawing.Point(297, 58);
-            this.Music1Label.Name = "Music1Label";
-            this.Music1Label.Size = new System.Drawing.Size(20, 13);
-            this.Music1Label.TabIndex = 108;
-            this.Music1Label.Text = "LC";
-            // 
-            // Slot2Label
-            // 
-            this.Slot2Label.AutoSize = true;
-            this.Slot2Label.Location = new System.Drawing.Point(296, 121);
-            this.Slot2Label.Name = "Slot2Label";
-            this.Slot2Label.Size = new System.Drawing.Size(20, 13);
-            this.Slot2Label.TabIndex = 109;
-            this.Slot2Label.Text = "LC";
-            // 
-            // Music2Label
-            // 
-            this.Music2Label.AutoSize = true;
-            this.Music2Label.Location = new System.Drawing.Point(296, 146);
-            this.Music2Label.Name = "Music2Label";
-            this.Music2Label.Size = new System.Drawing.Size(20, 13);
-            this.Music2Label.TabIndex = 110;
-            this.Music2Label.Text = "LC";
-            // 
-            // Slot3Label
-            // 
-            this.Slot3Label.AutoSize = true;
-            this.Slot3Label.Location = new System.Drawing.Point(296, 210);
-            this.Slot3Label.Name = "Slot3Label";
-            this.Slot3Label.Size = new System.Drawing.Size(20, 13);
-            this.Slot3Label.TabIndex = 111;
-            this.Slot3Label.Text = "LC";
-            // 
-            // Music3Label
-            // 
-            this.Music3Label.AutoSize = true;
-            this.Music3Label.Location = new System.Drawing.Point(296, 236);
-            this.Music3Label.Name = "Music3Label";
-            this.Music3Label.Size = new System.Drawing.Size(20, 13);
-            this.Music3Label.TabIndex = 112;
-            this.Music3Label.Text = "LC";
+            this.Music4Label.AutoSize = true;
+            this.Music4Label.Location = new System.Drawing.Point(296, 321);
+            this.Music4Label.Name = "Music4Label";
+            this.Music4Label.Size = new System.Drawing.Size(20, 13);
+            this.Music4Label.TabIndex = 114;
+            this.Music4Label.Text = "LC";
             // 
             // Slot4Label
             // 
@@ -625,14 +580,59 @@ namespace Track_Test_Creator
             this.Slot4Label.TabIndex = 113;
             this.Slot4Label.Text = "LC";
             // 
-            // Music4Label
+            // Music3Label
             // 
-            this.Music4Label.AutoSize = true;
-            this.Music4Label.Location = new System.Drawing.Point(296, 321);
-            this.Music4Label.Name = "Music4Label";
-            this.Music4Label.Size = new System.Drawing.Size(20, 13);
-            this.Music4Label.TabIndex = 114;
-            this.Music4Label.Text = "LC";
+            this.Music3Label.AutoSize = true;
+            this.Music3Label.Location = new System.Drawing.Point(296, 236);
+            this.Music3Label.Name = "Music3Label";
+            this.Music3Label.Size = new System.Drawing.Size(20, 13);
+            this.Music3Label.TabIndex = 112;
+            this.Music3Label.Text = "LC";
+            // 
+            // Slot3Label
+            // 
+            this.Slot3Label.AutoSize = true;
+            this.Slot3Label.Location = new System.Drawing.Point(296, 210);
+            this.Slot3Label.Name = "Slot3Label";
+            this.Slot3Label.Size = new System.Drawing.Size(20, 13);
+            this.Slot3Label.TabIndex = 111;
+            this.Slot3Label.Text = "LC";
+            // 
+            // Music2Label
+            // 
+            this.Music2Label.AutoSize = true;
+            this.Music2Label.Location = new System.Drawing.Point(296, 146);
+            this.Music2Label.Name = "Music2Label";
+            this.Music2Label.Size = new System.Drawing.Size(20, 13);
+            this.Music2Label.TabIndex = 110;
+            this.Music2Label.Text = "LC";
+            // 
+            // Slot2Label
+            // 
+            this.Slot2Label.AutoSize = true;
+            this.Slot2Label.Location = new System.Drawing.Point(296, 121);
+            this.Slot2Label.Name = "Slot2Label";
+            this.Slot2Label.Size = new System.Drawing.Size(20, 13);
+            this.Slot2Label.TabIndex = 109;
+            this.Slot2Label.Text = "LC";
+            // 
+            // Music1Label
+            // 
+            this.Music1Label.AutoSize = true;
+            this.Music1Label.Location = new System.Drawing.Point(297, 58);
+            this.Music1Label.Name = "Music1Label";
+            this.Music1Label.Size = new System.Drawing.Size(20, 13);
+            this.Music1Label.TabIndex = 108;
+            this.Music1Label.Text = "LC";
+            // 
+            // Slot1Label
+            // 
+            this.Slot1Label.AutoSize = true;
+            this.Slot1Label.Location = new System.Drawing.Point(297, 32);
+            this.Slot1Label.Name = "Slot1Label";
+            this.Slot1Label.Size = new System.Drawing.Size(20, 13);
+            this.Slot1Label.TabIndex = 107;
+            this.Slot1Label.Text = "LC";
             // 
             // Form1
             // 

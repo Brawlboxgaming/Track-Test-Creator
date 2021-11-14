@@ -50,7 +50,7 @@ namespace Track_Test_Creator
             }
         }
         List<CupInfo> cups = new List<CupInfo>();
-        readonly string[] course = new[] { "LC", "MMM", "MG", "TF", "MC", "CM", "DKS", "WGM", "DC", "KC", "MT", "GV", "DDR", "MH", "BC", "RR", "gPB", "dYF", "sGV2", "nMR", "nSL", "gSGB", "dDS", "gWS", "dDH", "gBC3", "nDKJP", "gMC", "sMC3", "dPG", "gDKM", "nBC" };
+        readonly string[] course = new[] { "LC", "MMM", "MG", "TF", "MC", "CM", "DKS", "WGM", "DC", "KC", "MT", "GV", "DDR", "MH", "BC", "RR", "gPB", "dYF", "sGV2", "nMR", "nSL", "gSGB", "dDS", "gWS", "dDH", "gBC3", "nDKJP", "gMC", "sMC3", "dPG", "gDKM", "nBC", "BP", "DP", "FS", "CCW", "TD", "sBC4", "gBC3", "nSS", "gCL", "dTH" };
         int currentCup = 1;
         string perfmon;
         string importDir;
