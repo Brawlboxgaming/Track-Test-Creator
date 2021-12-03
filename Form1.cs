@@ -52,7 +52,6 @@ namespace Track_Test_Creator
         List<CupInfo> cups = new List<CupInfo>();
         readonly string[] course = new[] { "LC", "MMM", "MG", "TF", "MC", "CM", "DKS", "WGM", "DC", "KC", "MT", "GV", "DDR", "MH", "BC", "RR", "gPB", "dYF", "sGV2", "nMR", "nSL", "gSGB", "dDS", "gWS", "dDH", "gBC3", "nDKJP", "gMC", "sMC3", "dPG", "gDKM", "nBC", "BP", "DP", "FS", "CCW", "TD", "sBC4", "gBC3", "nSS", "gCL", "dTH" };
         int currentCup = 1;
-        string perfmon;
         string importDir;
         string exportDir;
 
@@ -64,17 +63,14 @@ namespace Track_Test_Creator
 
         private void build_Click(object sender, EventArgs e)
         {
-            if (!perfMonToggle.Checked)
-                perfmon = "--perf-mon=off";
-            else perfmon = "--perf-mon=on";
             Directory.CreateDirectory(@"workdir/");
             Directory.CreateDirectory(@"workdir/input");
             Directory.CreateDirectory(@"workdir/output");
             if (Directory.Exists(@"output"))
                 Directory.Delete(@"output", true);
             Directory.CreateDirectory(@"output/");
-            Directory.CreateDirectory(@"output/boot");
-            Directory.CreateDirectory(@"output/scene");
+            Directory.CreateDirectory(@"output/rel");
+            Directory.CreateDirectory(@"output/Scene");
             StoreText();
             CreateConfig();
             EncodeFiles();
@@ -254,7 +250,7 @@ namespace Track_Test_Creator
 
             processInfo = new ProcessStartInfo();
             processInfo.FileName = @"cmd.exe";
-            processInfo.Arguments = "/C wlect.exe " + $"patch lecode-PAL.bin --le-define config.txt --custom-tt {perfmon} -o";
+            processInfo.Arguments = "/C wlect.exe " + "patch lecode-PAL.bin --le-define config.txt --custom-tt -o";
             processInfo.WorkingDirectory = @"workdir/";
             processInfo.CreateNoWindow = true;
             processInfo.WindowStyle = ProcessWindowStyle.Hidden;
@@ -268,7 +264,7 @@ namespace Track_Test_Creator
 
             processInfo = new ProcessStartInfo();
             processInfo.FileName = @"cmd.exe";
-            processInfo.Arguments = "/C wlect.exe " + $"patch lecode-USA.bin --le-define config.txt --custom-tt {perfmon} -o";
+            processInfo.Arguments = "/C wlect.exe " + "patch lecode-USA.bin --le-define config.txt --custom-tt -o";
             processInfo.WorkingDirectory = @"workdir/";
             processInfo.CreateNoWindow = true;
             processInfo.WindowStyle = ProcessWindowStyle.Hidden;
@@ -282,7 +278,7 @@ namespace Track_Test_Creator
 
             processInfo = new ProcessStartInfo();
             processInfo.FileName = @"cmd.exe";
-            processInfo.Arguments = "/C wlect.exe " + $"patch lecode-JAP.bin --le-define config.txt --custom-tt {perfmon} -o";
+            processInfo.Arguments = "/C wlect.exe " + "patch lecode-JAP.bin --le-define config.txt --custom-tt -o";
             processInfo.WorkingDirectory = @"workdir/";
             processInfo.CreateNoWindow = true;
             processInfo.WindowStyle = ProcessWindowStyle.Hidden;
@@ -308,11 +304,11 @@ namespace Track_Test_Creator
 
             process.WaitForExit();
 
-            Directory.Move(@"workdir\output", @"output\course");
-            File.Move(@"workdir\MenuSingle_E.szs", @"output\scene\MenuSingle_E.szs");
-            File.Move(@"workdir\lecode-PAL.bin", @"output\boot\lecode-PAL.bin");
-            File.Move(@"workdir\lecode-USA.bin", @"output\boot\lecode-USA.bin");
-            File.Move(@"workdir\lecode-JAP.bin", @"output\boot\lecode-JAP.bin");
+            Directory.Move(@"workdir\output", @"output\Course");
+            File.Move(@"workdir\MenuSingle_E.szs", @"output\Scene\MenuSingle_E.szs");
+            File.Move(@"workdir\lecode-PAL.bin", @"output\rel\lecode-PAL.bin");
+            File.Move(@"workdir\lecode-USA.bin", @"output\rel\lecode-USA.bin");
+            File.Move(@"workdir\lecode-JAP.bin", @"output\rel\lecode-JAP.bin");
             Directory.Delete(@"workdir\", true);
 
             MessageBox.Show("Building Complete", "Complete");
