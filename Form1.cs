@@ -71,6 +71,7 @@ namespace Track_Test_Creator
             Directory.CreateDirectory(@"output/");
             Directory.CreateDirectory(@"output/rel");
             Directory.CreateDirectory(@"output/Scene");
+            Directory.CreateDirectory(@"output/Scene/YourMom");
             StoreText();
             CreateConfig();
             EncodeFiles();
@@ -102,11 +103,12 @@ namespace Track_Test_Creator
             File.WriteAllBytes("workdir/cygwin1.dll", Properties.Resources.cygwin1);
             File.WriteAllBytes("workdir/cygz.dll", Properties.Resources.cygz);
 
-            File.WriteAllBytes("workdir/MenuSingle_E.szs", Properties.Resources.MenuSingle_E);
+            File.WriteAllBytes("workdir/MenuSingle_E_reg.szs", Properties.Resources.MenuSingle_E_reg);
+            File.WriteAllBytes("workdir/MenuSingle_E_mom.szs", Properties.Resources.MenuSingle_E_mom);
 
             var processInfo = new ProcessStartInfo();
             processInfo.FileName = @"cmd.exe";
-            processInfo.Arguments = "/C wszst.exe " + "extract MenuSingle_E.szs";
+            processInfo.Arguments = "/C wszst.exe " + "extract MenuSingle_E_reg.szs";
             processInfo.WorkingDirectory = @"workdir/";
             processInfo.CreateNoWindow = true;
             processInfo.WindowStyle = ProcessWindowStyle.Hidden;
@@ -121,7 +123,7 @@ namespace Track_Test_Creator
             processInfo = new ProcessStartInfo();
             processInfo.FileName = @"cmd.exe";
             processInfo.Arguments = "/C wbmgt.exe " + "decode Common.bmg";
-            processInfo.WorkingDirectory = @"workdir/MenuSingle_E.d/message/";
+            processInfo.WorkingDirectory = @"workdir/MenuSingle_E_reg.d/message/";
             processInfo.CreateNoWindow = true;
             processInfo.WindowStyle = ProcessWindowStyle.Hidden;
             processInfo.UseShellExecute = false;
@@ -132,7 +134,7 @@ namespace Track_Test_Creator
 
             process.WaitForExit();
 
-            StreamWriter sw = new StreamWriter(@"workdir\MenuSingle_E.d\message\Common.txt", true);
+            StreamWriter sw = new StreamWriter(@"workdir\MenuSingle_E_reg.d\message\Common.txt", true);
             sw.WriteLine("\n\n#--- [7000:7fff] LE-CODE: track names");
             sw.WriteLine(@"  7000	= \c{blue1}Wii \c{off}Mario Circuit");
             sw.WriteLine(@"  7001	= \c{blue1}Wii \c{off}Moo Moo Meadows");
@@ -223,7 +225,7 @@ namespace Track_Test_Creator
             processInfo = new ProcessStartInfo();
             processInfo.FileName = @"cmd.exe";
             processInfo.Arguments = "/C wbmgt.exe " + "encode Common.txt -o";
-            processInfo.WorkingDirectory = @"workdir/MenuSingle_E.d/message/";
+            processInfo.WorkingDirectory = @"workdir/MenuSingle_E_reg.d/message/";
             processInfo.CreateNoWindow = true;
             processInfo.WindowStyle = ProcessWindowStyle.Hidden;
             processInfo.UseShellExecute = false;
@@ -236,7 +238,151 @@ namespace Track_Test_Creator
 
             processInfo = new ProcessStartInfo();
             processInfo.FileName = @"cmd.exe";
-            processInfo.Arguments = "/C wszst.exe " + "create MenuSingle_E.d -o";
+            processInfo.Arguments = "/C wszst.exe " + "create MenuSingle_E_reg.d -o";
+            processInfo.WorkingDirectory = @"workdir/";
+            processInfo.CreateNoWindow = true;
+            processInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            processInfo.UseShellExecute = false;
+
+            process = new Process();
+            process.StartInfo = processInfo;
+            process.Start();
+
+            process.WaitForExit(); 
+            
+            processInfo = new ProcessStartInfo();
+            processInfo.FileName = @"cmd.exe";
+            processInfo.Arguments = "/C wszst.exe " + "extract MenuSingle_E_mom.szs";
+            processInfo.WorkingDirectory = @"workdir/";
+            processInfo.CreateNoWindow = true;
+            processInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            processInfo.UseShellExecute = false;
+
+            process = new Process();
+            process.StartInfo = processInfo;
+            process.Start();
+
+            process.WaitForExit();
+
+            processInfo = new ProcessStartInfo();
+            processInfo.FileName = @"cmd.exe";
+            processInfo.Arguments = "/C wbmgt.exe " + "decode Common.bmg";
+            processInfo.WorkingDirectory = @"workdir/MenuSingle_E_mom.d/message/";
+            processInfo.CreateNoWindow = true;
+            processInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            processInfo.UseShellExecute = false;
+
+            process = new Process();
+            process.StartInfo = processInfo;
+            process.Start();
+
+            process.WaitForExit();
+
+            sw = new StreamWriter(@"workdir\MenuSingle_E_mom.d\message\Common.txt", true);
+            sw.WriteLine("\n\n#--- [7000:7fff] LE-CODE: track names");
+            sw.WriteLine(@"  7000	= \c{blue1}Wii \c{off}Mario Circuit");
+            sw.WriteLine(@"  7001	= \c{blue1}Wii \c{off}Moo Moo Meadows");
+            sw.WriteLine(@"  7002	= \c{blue1}Wii \c{off}Mushroom Gorge");
+            sw.WriteLine(@"  7003	= \c{blue1}Wii \c{off}Grumble Volcano");
+            sw.WriteLine(@"  7004	= \c{blue1}Wii \c{off}Toad's Factory");
+            sw.WriteLine(@"  7005	= \c{blue1}Wii \c{off}Coconut Mall");
+            sw.WriteLine(@"  7006	= \c{blue1}Wii \c{off}DK's Snowboard Cross");
+            sw.WriteLine(@"  7007	= \c{blue1}Wii \c{off}Wario's Gold Mine");
+            sw.WriteLine(@"  7008	= \c{blue1}Wii \c{off}Luigi Circuit");
+            sw.WriteLine(@"  7009	= \c{blue1}Wii \c{off}Daisy Circuit");
+            sw.WriteLine(@"  700a	= \c{blue1}Wii \c{off}Moonview Highway");
+            sw.WriteLine(@"  700b	= \c{blue1}Wii \c{off}Maple Treeway");
+            sw.WriteLine(@"  700c	= \c{blue1}Wii \c{off}Bowser's Castle");
+            sw.WriteLine(@"  700d	= \c{blue1}Wii \c{off}Rainbow Road");
+            sw.WriteLine(@"  700e	= \c{blue1}Wii \c{off}Dry Dry Ruins");
+            sw.WriteLine(@"  700f	= \c{blue1}Wii \c{off}Koopa Cape");
+            sw.WriteLine(@"  7010	= \c{blue1}GCN \c{off}Peach Beach");
+            sw.WriteLine(@"  7011	= \c{blue1}GCN \c{off}Mario Circuit");
+            sw.WriteLine(@"  7012	= \c{blue1}GCN \c{off}Waluigi Stadium");
+            sw.WriteLine(@"  7013	= \c{blue1}GCN \c{off}DK Mountain");
+            sw.WriteLine(@"  7014	= \c{blue1}DS \c{off}Yoshi Falls");
+            sw.WriteLine(@"  7015	= \c{blue1}DS \c{off}Desert Hills");
+            sw.WriteLine(@"  7016	= \c{blue1}DS \c{off}Peach Gardens");
+            sw.WriteLine(@"  7017	= \c{blue1}DS \c{off}Delfino Square");
+            sw.WriteLine(@"  7018	= \c{blue1}SNES \c{off}Mario Circuit 3");
+            sw.WriteLine(@"  7019	= \c{blue1}SNES \c{off}Ghost Valley 2");
+            sw.WriteLine(@"  701a	= \c{blue1}N64 \c{off}Mario Raceway");
+            sw.WriteLine(@"  701b	= \c{blue1}N64 \c{off}Sherbet Land");
+            sw.WriteLine(@"  701c	= \c{blue1}N64 \c{off}Bowser's Castle");
+            sw.WriteLine(@"  701d	= \c{blue1}N64 \c{off}DK's Jungle Parkway");
+            sw.WriteLine(@"  701e	= \c{blue1}GBA \c{off}Bowser Castle 3");
+            sw.WriteLine(@"  701f	= \c{blue1}GBA \c{off}Shy Guy Beach");
+            sw.WriteLine(@"  7020	= \c{yor7}-----\c{off}");
+            sw.WriteLine(@"  7021	= \c{yor7}-----\c{off}");
+            sw.WriteLine(@"  7022	= \c{yor7}-----\c{off}");
+            sw.WriteLine(@"  7023	= \c{yor7}-----\c{off}");
+            sw.WriteLine(@"  7024	= \c{yor7}-----\c{off}");
+            sw.WriteLine(@"  7025	= \c{yor7}-----\c{off}");
+            sw.WriteLine(@"  7026	= \c{yor7}-----\c{off}");
+            sw.WriteLine(@"  7027	= \c{yor7}-----\c{off}");
+            sw.WriteLine(@"  7028	= \c{yor7}-----\c{off}");
+            sw.WriteLine(@"  7029	= \c{yor7}-----\c{off}");
+            sw.WriteLine(@"  702a	/");
+            sw.WriteLine(@"  702b	/");
+            sw.WriteLine(@"  702c	/");
+            sw.WriteLine(@"  702d	/");
+            sw.WriteLine(@"  702e	/");
+            sw.WriteLine(@"  702f	/");
+            sw.WriteLine(@"  7030	/");
+            sw.WriteLine(@"  7031	/");
+            sw.WriteLine(@"  7032	/");
+            sw.WriteLine(@"  7033	/");
+            sw.WriteLine(@"  7034	/");
+            sw.WriteLine(@"  7035	/");
+            sw.WriteLine(@"  7036	= Ring Mission");
+            sw.WriteLine(@"  7037	= Winningrun Demo");
+            sw.WriteLine(@"  7038	= Loser Demo");
+            sw.WriteLine(@"  7039	= Draw Demo");
+            sw.WriteLine(@"  703a	= Ending Demo");
+            sw.WriteLine(@"  703b	/");
+            sw.WriteLine(@"  703c	/");
+            sw.WriteLine(@"  703d	/");
+            sw.WriteLine(@"  703e	/");
+            sw.WriteLine(@"  703f	/");
+            sw.WriteLine(@"  7040	/");
+            sw.WriteLine(@"  7041	/");
+            sw.WriteLine(@"  7042	/");
+            sw.WriteLine(@"  7043	=  Wiimms SZS Toolset v2.25a r8443");
+            for (int i = 0; i < cups.Count; i++)
+            {
+                sw.WriteLine($"  {28740 + i * 4:X}	= {cups[i].Track1BMG}");
+                sw.WriteLine($"  {28741 + i * 4:X}	= {cups[i].Track2BMG}");
+                sw.WriteLine($"  {28742 + i * 4:X}	= {cups[i].Track3BMG}");
+                sw.WriteLine($"  {28743 + i * 4:X}	= {cups[i].Track4BMG}");
+            }
+            sw.WriteLine(@"");
+            sw.WriteLine(@" 18697	/");
+            sw.WriteLine(@" 18698	/");
+            sw.WriteLine(@" 18699	/");
+            sw.WriteLine(@" 1869a	/");
+            sw.WriteLine(@" 1869b	/");
+            sw.WriteLine(@" 1869c	/");
+            sw.WriteLine(@" 1869d	/");
+            sw.WriteLine(@" 1869e	/");
+            sw.Close();
+
+            processInfo = new ProcessStartInfo();
+            processInfo.FileName = @"cmd.exe";
+            processInfo.Arguments = "/C wbmgt.exe " + "encode Common.txt -o";
+            processInfo.WorkingDirectory = @"workdir/MenuSingle_E_mom.d/message/";
+            processInfo.CreateNoWindow = true;
+            processInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            processInfo.UseShellExecute = false;
+
+            process = new Process();
+            process.StartInfo = processInfo;
+            process.Start();
+
+            process.WaitForExit();
+
+            processInfo = new ProcessStartInfo();
+            processInfo.FileName = @"cmd.exe";
+            processInfo.Arguments = "/C wszst.exe " + "create MenuSingle_E_mom.d -o";
             processInfo.WorkingDirectory = @"workdir/";
             processInfo.CreateNoWindow = true;
             processInfo.WindowStyle = ProcessWindowStyle.Hidden;
@@ -305,7 +451,8 @@ namespace Track_Test_Creator
             process.WaitForExit();
 
             Directory.Move(@"workdir\output", @"output\Course");
-            File.Move(@"workdir\MenuSingle_E.szs", @"output\Scene\MenuSingle_E.szs");
+            File.Move(@"workdir\MenuSingle_E_reg.szs", @"output\Scene\MenuSingle_E.szs");
+            File.Move(@"workdir\MenuSingle_E_mom.szs", @"output\Scene\YourMom\MenuSingle_E.szs");
             File.Move(@"workdir\lecode-PAL.bin", @"output\rel\lecode-PAL.bin");
             File.Move(@"workdir\lecode-USA.bin", @"output\rel\lecode-USA.bin");
             File.Move(@"workdir\lecode-JAP.bin", @"output\rel\lecode-JAP.bin");

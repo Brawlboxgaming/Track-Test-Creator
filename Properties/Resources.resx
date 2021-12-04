@@ -157,8 +157,11 @@
   <data name="lecode_USA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lecode-USA.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MenuSingle_E" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MenuSingle_E.szs;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="MenuSingle_E_mom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuSingle_E_mom.szs;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MenuSingle_E_reg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuSingle_E_reg.szs;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="wbmgt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wbmgt.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

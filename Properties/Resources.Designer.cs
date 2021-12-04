@@ -193,9 +193,19 @@ namespace Track_Test_Creator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MenuSingle_E {
+        internal static byte[] MenuSingle_E_mom {
             get {
-                object obj = ResourceManager.GetObject("MenuSingle_E", resourceCulture);
+                object obj = ResourceManager.GetObject("MenuSingle_E_mom", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] MenuSingle_E_reg {
+            get {
+                object obj = ResourceManager.GetObject("MenuSingle_E_reg", resourceCulture);
                 return ((byte[])(obj));
             }
         }

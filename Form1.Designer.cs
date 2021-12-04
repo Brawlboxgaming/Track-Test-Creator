@@ -37,7 +37,6 @@ namespace Track_Test_Creator
             this.LeftArrow = new System.Windows.Forms.Button();
             this.export = new System.Windows.Forms.Button();
             this.import = new System.Windows.Forms.Button();
-            this.perfMonToggle = new System.Windows.Forms.CheckBox();
             this.label50 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -120,7 +119,7 @@ namespace Track_Test_Creator
             // 
             // build
             // 
-            this.build.Location = new System.Drawing.Point(336, 386);
+            this.build.Location = new System.Drawing.Point(336, 378);
             this.build.Name = "build";
             this.build.Size = new System.Drawing.Size(75, 23);
             this.build.TabIndex = 110;
@@ -150,7 +149,7 @@ namespace Track_Test_Creator
             // 
             // export
             // 
-            this.export.Location = new System.Drawing.Point(255, 386);
+            this.export.Location = new System.Drawing.Point(255, 378);
             this.export.Name = "export";
             this.export.Size = new System.Drawing.Size(75, 23);
             this.export.TabIndex = 113;
@@ -160,25 +159,13 @@ namespace Track_Test_Creator
             // 
             // import
             // 
-            this.import.Location = new System.Drawing.Point(174, 386);
+            this.import.Location = new System.Drawing.Point(174, 378);
             this.import.Name = "import";
             this.import.Size = new System.Drawing.Size(75, 23);
             this.import.TabIndex = 114;
             this.import.Text = "Import";
             this.import.UseVisualStyleBackColor = true;
             this.import.Click += new System.EventHandler(this.import_Click);
-            // 
-            // perfMonToggle
-            // 
-            this.perfMonToggle.AutoSize = true;
-            this.perfMonToggle.Checked = true;
-            this.perfMonToggle.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.perfMonToggle.Location = new System.Drawing.Point(12, 407);
-            this.perfMonToggle.Name = "perfMonToggle";
-            this.perfMonToggle.Size = new System.Drawing.Size(124, 17);
-            this.perfMonToggle.TabIndex = 115;
-            this.perfMonToggle.Text = "Performance Monitor";
-            this.perfMonToggle.UseVisualStyleBackColor = true;
             // 
             // label50
             // 
@@ -638,8 +625,7 @@ namespace Track_Test_Creator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 430);
-            this.Controls.Add(this.perfMonToggle);
+            this.ClientSize = new System.Drawing.Size(423, 412);
             this.Controls.Add(this.import);
             this.Controls.Add(this.export);
             this.Controls.Add(this.LeftArrow);
@@ -677,7 +663,6 @@ namespace Track_Test_Creator
         private System.Windows.Forms.Button LeftArrow;
         private System.Windows.Forms.Button export;
         private System.Windows.Forms.Button import;
-        private System.Windows.Forms.CheckBox perfMonToggle;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;

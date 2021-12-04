@@ -251,7 +251,6 @@
     <None Include="Resources\lecode-JAP.bin" />
     <None Include="Resources\lecode-PAL.bin" />
     <None Include="Resources\lecode-USA.bin" />
-    <None Include="Resources\MenuSingle_E.szs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -267,6 +266,8 @@
     <None Include="Resources\cygintl-8.dll" />
     <None Include="Resources\cygiconv-2.dll" />
     <None Include="Resources\cygcrypto-1.1.dll" />
+    <None Include="Resources\MenuSingle_E_mom.szs" />
+    <None Include="Resources\MenuSingle_E_reg.szs" />
     <None Include="Resources\wszst.exe" />
     <None Include="Resources\wlect.exe" />
     <None Include="Resources\wbmgt.exe" />
