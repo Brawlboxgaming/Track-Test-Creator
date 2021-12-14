@@ -69,9 +69,10 @@ namespace Track_Test_Creator
             if (Directory.Exists(@"output"))
                 Directory.Delete(@"output", true);
             Directory.CreateDirectory(@"output/");
-            Directory.CreateDirectory(@"output/rel");
-            Directory.CreateDirectory(@"output/Scene");
-            Directory.CreateDirectory(@"output/Scene/YourMom");
+            Directory.CreateDirectory(@"output/CTTP");
+            Directory.CreateDirectory(@"output/CTTP/rel");
+            Directory.CreateDirectory(@"output/CTTP/Scene");
+            Directory.CreateDirectory(@"output/CTTP/Scene/YourMom");
             StoreText();
             CreateConfig();
             EncodeFiles();
@@ -450,12 +451,12 @@ namespace Track_Test_Creator
 
             process.WaitForExit();
 
-            Directory.Move(@"workdir\output", @"output\Course");
-            File.Move(@"workdir\MenuSingle_E_reg.szs", @"output\Scene\MenuSingle_E.szs");
-            File.Move(@"workdir\MenuSingle_E_mom.szs", @"output\Scene\YourMom\MenuSingle_E.szs");
-            File.Move(@"workdir\lecode-PAL.bin", @"output\rel\lecode-PAL.bin");
-            File.Move(@"workdir\lecode-USA.bin", @"output\rel\lecode-USA.bin");
-            File.Move(@"workdir\lecode-JAP.bin", @"output\rel\lecode-JAP.bin");
+            Directory.Move(@"workdir\output", @"output\CTTP\Course");
+            File.Move(@"workdir\MenuSingle_E_reg.szs", @"output\CTTP\Scene\MenuSingle_E.szs");
+            File.Move(@"workdir\MenuSingle_E_mom.szs", @"output\CTTP\Scene\YourMom\MenuSingle_E.szs");
+            File.Move(@"workdir\lecode-PAL.bin", @"output\CTTP\rel\lecode-PAL.bin");
+            File.Move(@"workdir\lecode-USA.bin", @"output\CTTP\rel\lecode-USA.bin");
+            File.Move(@"workdir\lecode-JAP.bin", @"output\CTTP\rel\lecode-JAP.bin");
             Directory.Delete(@"workdir\", true);
 
             MessageBox.Show("Building Complete", "Complete");
