@@ -5,6 +5,7 @@ using System.IO;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using System.Xml;
 
 namespace Track_Test_Creator
 {
@@ -50,11 +51,123 @@ namespace Track_Test_Creator
             }
         }
         List<CupInfo> cups = new List<CupInfo>();
-        readonly string[] course = new[] { "LC", "MMM", "MG", "TF", "MC", "CM", "DKS", "WGM", "DC", "KC", "MT", "GV", "DDR", "MH", "BC", "RR", "gPB", "dYF", "sGV2", "nMR", "nSL", "gSGB", "dDS", "gWS", "dDH", "gBC3", "nDKJP", "gMC", "sMC3", "dPG", "gDKM", "nBC", "BP", "DP", "FS", "CCW", "TD", "sBC4", "gBC3", "nSS", "gCL", "dTH" };
+        readonly string[] courseStrings = new[] { "Luigi Circuit",
+            "Moo Moo Meadows",
+            "Mushroom Gorge",
+            "Toad's Factory",
+            "Mario Circuit",
+            "Coconut Mall",
+            "DK Summit",
+            "Wario's Gold Mine",
+            "Daisy Circuit",
+            "Koopa Cape",
+            "Maple Treeway",
+            "Grumble Volcano",
+            "Dry Dry Ruins",
+            "Moonview Highway",
+            "Bowser Castle",
+            "Rainbow Road",
+            "GCN Peach Beach",
+            "DS Yoshi Falls",
+            "SNES Ghost Valley 2",
+            "N64 Mario Raceway",
+            "N64 Sherbet Land",
+            "GBA Shy Guy Beach",
+            "DS Delfino Square",
+            "GCN Waluigi Stadium",
+            "DS Desert Hills",
+            "GBA Bowser Castle 3",
+            "N64 DK's Jungle Parkway",
+            "GCN Mario Circuit",
+            "SNES Mario Circuit 3",
+            "DS Peach Gardens",
+            "GCN DK Mountain",
+            "N64 Bowser's Castle",
+            "Block Plaza",
+            "Delfino Pier",
+            "Funky Stadium",
+            "Chain Chomp Wheel",
+            "Thwomp Desert",
+            "SNES Battle Course 4",
+            "GBA Battle Course 3",
+            "N64 Skyscraper",
+            "GCN Cookie Land",
+            "DS Twilight House" };
+        readonly string[] courseMusicIds = new[] { "117",
+            "119",
+            "121",
+            "123",
+            "125",
+            "127",
+            "129",
+            "131",
+            "135",
+            "133",
+            "143",
+            "139",
+            "137",
+            "141",
+            "145",
+            "147",
+            "165",
+            "173",
+            "151",
+            "159",
+            "157",
+            "149",
+            "175",
+            "169",
+            "177",
+            "155",
+            "161",
+            "167",
+            "153",
+            "179",
+            "171",
+            "163",
+            "33",
+            "32",
+            "35",
+            "34",
+            "36",
+            "39",
+            "40",
+            "41",
+            "37",
+            "38", };
+        readonly string[] courseSlotIds = new[] { "T11",
+            "T12",
+            "T13",
+            "T14",
+            "T21",
+            "T22",
+            "T23",
+            "T24",
+            "T31",
+            "T32",
+            "T33",
+            "T34",
+            "T41",
+            "T42",
+            "T43",
+            "T44",
+            "T51",
+            "T52",
+            "T53",
+            "T54",
+            "T61",
+            "T62",
+            "T63",
+            "T64",
+            "T71",
+            "T72",
+            "T73",
+            "T74",
+            "T81",
+            "T82",
+            "T83",
+            "T84" };
         int currentCup = 1;
-        string importDir;
-        string exportDir;
-
         public Form1()
         {
             cups.Add(new CupInfo("", "", "", "", "", "", "", "", 1, 1, 1, 1, 1, 1, 1, 1));
@@ -249,8 +362,8 @@ namespace Track_Test_Creator
             process.StartInfo = processInfo;
             process.Start();
 
-            process.WaitForExit(); 
-            
+            process.WaitForExit();
+
             processInfo = new ProcessStartInfo();
             processInfo.FileName = @"cmd.exe";
             processInfo.Arguments = "/C wszst.exe " + "extract MenuSingle_E_mom.szs";
@@ -444,11 +557,11 @@ namespace Track_Test_Creator
             processInfo.CreateNoWindow = true;
             processInfo.WindowStyle = ProcessWindowStyle.Hidden;
             processInfo.UseShellExecute = false;
+            processInfo.RedirectStandardOutput = true;
 
             process = new Process();
             process.StartInfo = processInfo;
             process.Start();
-
             process.WaitForExit();
 
             Directory.Move(@"workdir\output", @"output\CTTP\Course");
@@ -481,10 +594,10 @@ namespace Track_Test_Creator
                 for (int i = 0; i < cups.Count; i++)
                 {
                     sw.WriteLine($"\nC \"{i + 1}\" # {i + 12}");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cups[i].Track1Music) - 1]}; {course[Convert.ToInt32(cups[i].Track1Slot) - 1]}; 0x00; \"{cups[i].Track1Name}\"; \"{cups[i].Track1Name}\"; \"\"");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cups[i].Track2Music) - 1]}; {course[Convert.ToInt32(cups[i].Track2Slot) - 1]}; 0x00; \"{cups[i].Track2Name}\"; \"{cups[i].Track2Name}\"; \"\"");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cups[i].Track3Music) - 1]}; {course[Convert.ToInt32(cups[i].Track3Slot) - 1]}; 0x00; \"{cups[i].Track3Name}\"; \"{cups[i].Track3Name}\"; \"\"");
-                    sw.WriteLine($"T {course[Convert.ToInt32(cups[i].Track4Music) - 1]}; {course[Convert.ToInt32(cups[i].Track4Slot) - 1]}; 0x00; \"{cups[i].Track4Name}\"; \"{cups[i].Track4Name}\"; \"\"");
+                    sw.WriteLine($"T {courseMusicIds[Convert.ToInt32(cups[i].Track1Music) - 1]}; {courseSlotIds[Convert.ToInt32(cups[i].Track1Slot) - 1]}; 0x00; \"{cups[i].Track1Name}\"; \"{cups[i].Track1Name}\"; \"\"");
+                    sw.WriteLine($"T {courseMusicIds[Convert.ToInt32(cups[i].Track2Music) - 1]}; {courseSlotIds[Convert.ToInt32(cups[i].Track2Slot) - 1]}; 0x00; \"{cups[i].Track2Name}\"; \"{cups[i].Track2Name}\"; \"\"");
+                    sw.WriteLine($"T {courseMusicIds[Convert.ToInt32(cups[i].Track3Music) - 1]}; {courseSlotIds[Convert.ToInt32(cups[i].Track3Slot) - 1]}; 0x00; \"{cups[i].Track3Name}\"; \"{cups[i].Track3Name}\"; \"\"");
+                    sw.WriteLine($"T {courseMusicIds[Convert.ToInt32(cups[i].Track4Music) - 1]}; {courseSlotIds[Convert.ToInt32(cups[i].Track4Slot) - 1]}; 0x00; \"{cups[i].Track4Name}\"; \"{cups[i].Track4Name}\"; \"\"");
 
                 }
                 sw.Close();
@@ -598,42 +711,42 @@ namespace Track_Test_Creator
 
         private void Track1Slot_ValueChanged(object sender, EventArgs e)
         {
-            Slot1Label.Text = course[(int)Track1Slot.Value-1];
+            Slot1Label.Text = courseStrings[(int)Track1Slot.Value - 1];
         }
 
         private void Track1Music_ValueChanged(object sender, EventArgs e)
         {
-            Music1Label.Text = course[(int)Track1Music.Value - 1];
+            Music1Label.Text = courseStrings[(int)Track1Music.Value - 1];
         }
 
         private void Track2Slot_ValueChanged(object sender, EventArgs e)
         {
-            Slot2Label.Text = course[(int)Track2Slot.Value - 1];
+            Slot2Label.Text = courseStrings[(int)Track2Slot.Value - 1];
         }
 
         private void Track2Music_ValueChanged(object sender, EventArgs e)
         {
-            Music2Label.Text = course[(int)Track2Music.Value - 1];
+            Music2Label.Text = courseStrings[(int)Track2Music.Value - 1];
         }
 
         private void Track3Slot_ValueChanged(object sender, EventArgs e)
         {
-            Slot3Label.Text = course[(int)Track3Slot.Value - 1];
+            Slot3Label.Text = courseStrings[(int)Track3Slot.Value - 1];
         }
 
         private void Track3Music_ValueChanged(object sender, EventArgs e)
         {
-            Music3Label.Text = course[(int)Track3Music.Value - 1];
+            Music3Label.Text = courseStrings[(int)Track3Music.Value - 1];
         }
 
         private void Track4Slot_ValueChanged(object sender, EventArgs e)
         {
-            Slot4Label.Text = course[(int)Track4Slot.Value - 1];
+            Slot4Label.Text = courseStrings[(int)Track4Slot.Value - 1];
         }
 
         private void Track4Music_ValueChanged(object sender, EventArgs e)
         {
-            Music4Label.Text = course[(int)Track4Music.Value - 1];
+            Music4Label.Text = courseStrings[(int)Track4Music.Value - 1];
         }
     }
 }

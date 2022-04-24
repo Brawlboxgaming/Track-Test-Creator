@@ -119,7 +119,7 @@ namespace Track_Test_Creator
             // 
             // build
             // 
-            this.build.Location = new System.Drawing.Point(336, 378);
+            this.build.Location = new System.Drawing.Point(426, 378);
             this.build.Name = "build";
             this.build.Size = new System.Drawing.Size(75, 23);
             this.build.TabIndex = 110;
@@ -129,7 +129,7 @@ namespace Track_Test_Creator
             // 
             // RightArrow
             // 
-            this.RightArrow.Location = new System.Drawing.Point(386, 12);
+            this.RightArrow.Location = new System.Drawing.Point(472, 12);
             this.RightArrow.Name = "RightArrow";
             this.RightArrow.Size = new System.Drawing.Size(29, 350);
             this.RightArrow.TabIndex = 111;
@@ -149,7 +149,7 @@ namespace Track_Test_Creator
             // 
             // export
             // 
-            this.export.Location = new System.Drawing.Point(255, 378);
+            this.export.Location = new System.Drawing.Point(345, 378);
             this.export.Name = "export";
             this.export.Size = new System.Drawing.Size(75, 23);
             this.export.TabIndex = 113;
@@ -159,7 +159,7 @@ namespace Track_Test_Creator
             // 
             // import
             // 
-            this.import.Location = new System.Drawing.Point(174, 378);
+            this.import.Location = new System.Drawing.Point(264, 378);
             this.import.Name = "import";
             this.import.Size = new System.Drawing.Size(75, 23);
             this.import.TabIndex = 114;
@@ -545,7 +545,7 @@ namespace Track_Test_Creator
             this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel1.Location = new System.Drawing.Point(43, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(337, 350);
+            this.panel1.Size = new System.Drawing.Size(361, 350);
             this.panel1.TabIndex = 105;
             this.panel1.Tag = "cup1";
             // 
@@ -554,78 +554,78 @@ namespace Track_Test_Creator
             this.Music4Label.AutoSize = true;
             this.Music4Label.Location = new System.Drawing.Point(296, 321);
             this.Music4Label.Name = "Music4Label";
-            this.Music4Label.Size = new System.Drawing.Size(20, 13);
+            this.Music4Label.Size = new System.Drawing.Size(61, 13);
             this.Music4Label.TabIndex = 114;
-            this.Music4Label.Text = "LC";
+            this.Music4Label.Text = "Luigi Circuit";
             // 
             // Slot4Label
             // 
             this.Slot4Label.AutoSize = true;
             this.Slot4Label.Location = new System.Drawing.Point(296, 295);
             this.Slot4Label.Name = "Slot4Label";
-            this.Slot4Label.Size = new System.Drawing.Size(20, 13);
+            this.Slot4Label.Size = new System.Drawing.Size(61, 13);
             this.Slot4Label.TabIndex = 113;
-            this.Slot4Label.Text = "LC";
+            this.Slot4Label.Text = "Luigi Circuit";
             // 
             // Music3Label
             // 
             this.Music3Label.AutoSize = true;
             this.Music3Label.Location = new System.Drawing.Point(296, 236);
             this.Music3Label.Name = "Music3Label";
-            this.Music3Label.Size = new System.Drawing.Size(20, 13);
+            this.Music3Label.Size = new System.Drawing.Size(61, 13);
             this.Music3Label.TabIndex = 112;
-            this.Music3Label.Text = "LC";
+            this.Music3Label.Text = "Luigi Circuit";
             // 
             // Slot3Label
             // 
             this.Slot3Label.AutoSize = true;
             this.Slot3Label.Location = new System.Drawing.Point(296, 210);
             this.Slot3Label.Name = "Slot3Label";
-            this.Slot3Label.Size = new System.Drawing.Size(20, 13);
+            this.Slot3Label.Size = new System.Drawing.Size(61, 13);
             this.Slot3Label.TabIndex = 111;
-            this.Slot3Label.Text = "LC";
+            this.Slot3Label.Text = "Luigi Circuit";
             // 
             // Music2Label
             // 
             this.Music2Label.AutoSize = true;
             this.Music2Label.Location = new System.Drawing.Point(296, 146);
             this.Music2Label.Name = "Music2Label";
-            this.Music2Label.Size = new System.Drawing.Size(20, 13);
+            this.Music2Label.Size = new System.Drawing.Size(61, 13);
             this.Music2Label.TabIndex = 110;
-            this.Music2Label.Text = "LC";
+            this.Music2Label.Text = "Luigi Circuit";
             // 
             // Slot2Label
             // 
             this.Slot2Label.AutoSize = true;
             this.Slot2Label.Location = new System.Drawing.Point(296, 121);
             this.Slot2Label.Name = "Slot2Label";
-            this.Slot2Label.Size = new System.Drawing.Size(20, 13);
+            this.Slot2Label.Size = new System.Drawing.Size(61, 13);
             this.Slot2Label.TabIndex = 109;
-            this.Slot2Label.Text = "LC";
+            this.Slot2Label.Text = "Luigi Circuit";
             // 
             // Music1Label
             // 
             this.Music1Label.AutoSize = true;
             this.Music1Label.Location = new System.Drawing.Point(297, 58);
             this.Music1Label.Name = "Music1Label";
-            this.Music1Label.Size = new System.Drawing.Size(20, 13);
+            this.Music1Label.Size = new System.Drawing.Size(61, 13);
             this.Music1Label.TabIndex = 108;
-            this.Music1Label.Text = "LC";
+            this.Music1Label.Text = "Luigi Circuit";
             // 
             // Slot1Label
             // 
             this.Slot1Label.AutoSize = true;
             this.Slot1Label.Location = new System.Drawing.Point(297, 32);
             this.Slot1Label.Name = "Slot1Label";
-            this.Slot1Label.Size = new System.Drawing.Size(20, 13);
+            this.Slot1Label.Size = new System.Drawing.Size(61, 13);
             this.Slot1Label.TabIndex = 107;
-            this.Slot1Label.Text = "LC";
+            this.Slot1Label.Text = "Luigi Circuit";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 412);
+            this.ClientSize = new System.Drawing.Size(509, 412);
             this.Controls.Add(this.import);
             this.Controls.Add(this.export);
             this.Controls.Add(this.LeftArrow);
